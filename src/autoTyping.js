@@ -14,7 +14,7 @@ const onCancel = () => {
     console.log(' ');
     console.log('=======================================================');
     console.log(' ');
-    process.exit(0);
+    process.exit(1);
 };
 
 const formatTime = (ms) => {
