@@ -41,7 +41,7 @@
     },
     "dependencies": {
         "@discord/embedded-app-sdk": "^1.4.2",
-        "@discordjs/voice": "^0.17.0",
+        "@discordjs/voice": "^0.18.0",
         "@google/generative-ai": "^0.21.0",
         "@safe-global/api-kit": "^2.4.1",
         "@safe-global/protocol-kit": "^4.0.0",
