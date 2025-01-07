@@ -16,6 +16,13 @@ const onCancel = () => {
     process.exit(1);
 };
 
+const formatTime = (ms) => {
+    let minutes = Math.floor(ms / (1000 * 60));
+    let seconds = Math.floor((ms % (1000 * 60)) / 1000);
+
+    return `${minutes} minutes ${seconds} seconds`;
+};
+
 const arrListRandom = [
     {
         id: 'All Without Delay',
@@ -234,6 +241,10 @@ async function bot() {
                             .catch((error) => {
                                 console.log(`Failed to react to message: ${error.message}`);
                             });
+
+                        const timePaused = formatTime(randomDelay);
+
+                        console.log(`The action was delayed for ${timePaused}`);
 
                         await new Promise((resolve) => setTimeout(resolve, randomDelay));
                     } catch (error) {
