@@ -128,8 +128,8 @@ async function bot() {
                 try {
                     await channel.send(gmText);
                     console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
-                    console.log(`Current time: ${new Date().toString()}`);
+                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
+                    console.log(`Current Time: ${new Date().toString()}`);
                     console.log(`Send a gm message:: "${gmText}"`);
                     console.log('Messages scheduled successfully!');
                     console.log(' ');
@@ -137,8 +137,8 @@ async function bot() {
                     console.log(' ');
                 } catch (error) {
                     console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
-                    console.log(`Current time: ${new Date().toString()}`);
+                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
+                    console.log(`Current Time: ${new Date().toString()}`);
                     console.error('There was an error sending a gm message:', error);
                     console.log(' ');
                     console.log('=======================================================');
@@ -150,8 +150,8 @@ async function bot() {
                 try {
                     await channel.send(gnText);
                     console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
-                    console.log(`Current time: ${new Date().toString()}`);
+                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
+                    console.log(`Current Time: ${new Date().toString()}`);
                     console.log(`Send a gn message:: "${gnText}"`);
                     console.log('Messages scheduled successfully!');
                     console.log(' ');
@@ -159,8 +159,8 @@ async function bot() {
                     console.log(' ');
                 } catch (error) {
                     console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
-                    console.log(`Current time: ${new Date().toString()}`);
+                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
+                    console.log(`Current Time: ${new Date().toString()}`);
                     console.error('There was an error sending a gn message:', error);
                     console.log(' ');
                     console.log('=======================================================');
