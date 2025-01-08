@@ -3,6 +3,7 @@ import { Client } from 'discord.js-selfbot-v13';
 import process from 'process';
 import prompts from 'prompts';
 import delay from 'delay';
+import ora from 'ora';
 
 const client = new Client({ checkUpdate: false });
 
@@ -74,26 +75,29 @@ async function bot() {
 
                 await channel.sendTyping();
 
-                let timeLeft = pausedFor / 1000;
-                const countdownInterval = setInterval(() => {
-                    const minutes = Math.floor(timeLeft / 60);
-                    const seconds = Math.floor(timeLeft % 60);
-
-                    process.stdout.write(`Time Left Before: ${minutes} minutes ${seconds} seconds \r`);
-                    timeLeft--;
-
-                    if (timeLeft < 0) {
-                        clearInterval(countdownInterval);
-                        process.stdout.write(`\r`);
-                    }
-                }, 1000);
-
                 console.log(`The action was delayed for ${timePaused}`);
                 console.log(' ');
                 console.log('=======================================================');
                 console.log(' ');
 
+                let timeLeft = pausedFor / 1000;
+                const spinner = ora('Starting countdown...').start();
+                const countdownInterval = setInterval(() => {
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = Math.floor(timeLeft % 60);
+
+                    spinner.text = `Time Left: ${minutes} minutes ${seconds} seconds`;
+                    timeLeft--;
+
+                    if (timeLeft < 0) {
+                        spinner.stop();
+                        clearInterval(countdownInterval);
+                    }
+                }, 1000);
+
                 await delay(pausedFor);
+                spinner.stop();
+
                 number++;
             } catch (error) {
                 console.error('There was an error when typing:', error);
