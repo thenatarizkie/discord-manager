@@ -8,6 +8,7 @@ Since this is an open source project that I developed myself, there are still ma
 
 - Fork it ( https://github.com/thenatarizkie/discord-manager )
 - Create your feature branch (`git checkout -b my-new-feature`)
+- Run eslint and prettierrc first (`npm run lint:fix`)
 - Commit your changes (`git commit -m 'feat: add some new feature'`)
 - Push to the branch (`git push origin my-new-feature`)
 - Create a new pull request
