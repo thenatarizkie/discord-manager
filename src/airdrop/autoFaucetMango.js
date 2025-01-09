@@ -56,6 +56,35 @@ async function bot() {
         { onCancel },
     );
 
+    let pausedFor = 0;
+    const response = await prompts(
+        {
+            type: 'text',
+            name: 'manualDelay',
+            message: 'Enter how many delay (1000 = 1 seconds)',
+            validate: (value) => {
+                const trimmedValue = value.trim();
+                if (trimmedValue === '') {
+                    return 'How many delay is required';
+                }
+                if (isNaN(trimmedValue)) {
+                    return 'Please enter a valid number';
+                }
+                const intValue = parseInt(trimmedValue);
+                if (intValue <= 0) {
+                    return 'At least more than one';
+                }
+                return true;
+            },
+        },
+        { onCancel },
+    );
+
+    const manualDelay = parseInt(response.manualDelay);
+    if (!isNaN(manualDelay)) {
+        pausedFor = manualDelay;
+    }
+
     client.on('ready', async () => {
         console.log(' ');
         console.log('=======================================================');
@@ -76,7 +105,6 @@ async function bot() {
         console.log(' ');
 
         let number = 1;
-        let pausedFor = 10000;
         while (true) {
             try {
                 const message = `<@1322128247550640130> ${mangoAddressId}`;
