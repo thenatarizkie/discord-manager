@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { Client } from 'discord.js-selfbot-v13';
 import process from 'process';
 import prompts from 'prompts';
+import ora from 'ora';
 
 const client = new Client({ checkUpdate: false });
 
@@ -245,15 +246,33 @@ async function bot() {
                         const timePaused = formatTime(randomDelay);
 
                         console.log(`The action was delayed for ${timePaused}`);
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
+
+                        let timeLeft = randomDelay / 1000;
+                        const spinner = ora('Starting countdown...').start();
+                        const countdownInterval = setInterval(() => {
+                            const minutes = Math.floor(timeLeft / 60);
+                            const seconds = Math.floor(timeLeft % 60);
+
+                            spinner.text = `Time Left: ${minutes} minutes ${seconds} seconds`;
+                            timeLeft--;
+
+                            if (timeLeft < 0) {
+                                spinner.stop();
+                                clearInterval(countdownInterval);
+                            }
+                        }, 1000);
 
                         await new Promise((resolve) => setTimeout(resolve, randomDelay));
+                        spinner.stop();
                     } catch (error) {
                         console.log(`Error processing message: ${error.message}`);
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
                     }
-
-                    console.log(' ');
-                    console.log('=======================================================');
-                    console.log(' ');
 
                     number++;
                     processQueue();
