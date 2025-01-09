@@ -167,46 +167,59 @@ async function bot() {
         console.log(' ');
 
         schedule.scheduleJob('0 22 * * *', async () => {
-            const getSearchMessage = await toGetSearchMessages(
-                channel.guildId,
-                client.user.id,
-                tokenId,
-                mangoAddressId,
-            );
-            const listSearchMessage = getSearchMessage.data || [];
+            let hasMessagesToDelete = true;
 
-            if (listSearchMessage.length > 0) {
-                for (const value of listSearchMessage) {
-                    try {
-                        const channelFromSearch = client.channels.cache.get(value.channelId);
+            while (hasMessagesToDelete) {
+                const getSearchMessage = await toGetSearchMessages(
+                    channel.guildId,
+                    client.user.id,
+                    tokenId,
+                    mangoAddressId,
+                );
+                const listSearchMessage = getSearchMessage.data || [];
 
-                        if (!channelFromSearch || !channelFromSearch.isText()) {
-                            console.log('Invalid channel or the channel is not a text channel');
+                if (listSearchMessage.length === 0) {
+                    console.log('There are no messages that need to be deleted');
+                    console.log(' ');
+                    console.log('=======================================================');
+                    console.log(' ');
+                    hasMessagesToDelete = false;
+                    continue;
+                }
+
+                if (listSearchMessage.length > 0) {
+                    for (const value of listSearchMessage) {
+                        try {
+                            const channelFromSearch = client.channels.cache.get(value.channelId);
+
+                            if (!channelFromSearch || !channelFromSearch.isText()) {
+                                console.log('Invalid channel or the channel is not a text channel');
+                                console.log(' ');
+                                console.log('=======================================================');
+                                console.log(' ');
+                                continue;
+                            }
+
+                            const messageFromSearch = await channelFromSearch.messages.fetch(value.messageId);
+                            if (!messageFromSearch) {
+                                console.log(`Message with ID ${value.messageId} cannot be found`);
+                                console.log(' ');
+                                console.log('=======================================================');
+                                console.log(' ');
+                                continue;
+                            }
+
+                            await messageFromSearch.delete();
+                            console.log(`Message with ID ${value.messageId} successfully deleted`);
                             console.log(' ');
                             console.log('=======================================================');
                             console.log(' ');
-                            continue;
-                        }
-
-                        const messageFromSearch = await channelFromSearch.messages.fetch(value.messageId);
-                        if (!messageFromSearch) {
-                            console.log(`Message with ID ${value.messageId} cannot be found`);
+                        } catch (error) {
+                            console.error(`Failed to delete message with ID ${value.messageId}:`, error.message);
                             console.log(' ');
                             console.log('=======================================================');
                             console.log(' ');
-                            continue;
                         }
-
-                        await messageFromSearch.delete();
-                        console.log(`Message with ID ${value.messageId} successfully deleted`);
-                        console.log(' ');
-                        console.log('=======================================================');
-                        console.log(' ');
-                    } catch (error) {
-                        console.error(`Failed to delete message with ID ${value.messageId}:`, error.message);
-                        console.log(' ');
-                        console.log('=======================================================');
-                        console.log(' ');
                     }
                 }
             }
