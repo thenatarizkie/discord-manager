@@ -4,6 +4,8 @@ import process from 'process';
 import prompts from 'prompts';
 import delay from 'delay';
 import ora from 'ora';
+import fetch from 'node-fetch';
+import schedule from 'node-schedule';
 
 const client = new Client({ checkUpdate: false });
 
@@ -23,6 +25,66 @@ const formatTime = (ms) => {
     let seconds = Math.floor((ms % (1000 * 60)) / 1000);
 
     return `${minutes} minutes ${seconds} seconds`;
+};
+
+const toGetSearchMessages = async (guildId = '', userId = '', tokenId = '', content = '') => {
+    const searchUrl = `https://discord.com/api/v9/guilds/${guildId}/messages/search?author_id=${userId}&content=${encodeURIComponent(content)}`;
+
+    try {
+        const request = await fetch(searchUrl, {
+            headers: {
+                accept: '*/*',
+                'accept-language': 'en-US,en;q=0.9',
+                authorization: tokenId,
+                'cache-control': 'no-cache',
+                pragma: 'no-cache',
+                'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'x-discord-locale': 'en-US',
+                'x-discord-timezone': 'Asia/Jakarta',
+            },
+            method: 'GET',
+        });
+
+        if (request.status == 200 || request.status == 201 || request.status == 204) {
+            let listData = [];
+            const response = await request.json();
+
+            response.messages.forEach((messageGroup) => {
+                messageGroup.forEach((message) => {
+                    listData.push({
+                        messageId: message.id,
+                        channelId: message.channel_id,
+                        content: message.content,
+                        author: message.author.username,
+                        timestamp: message.timestamp,
+                    });
+                });
+            });
+
+            return {
+                status: 'success',
+                data: listData,
+                message: 'Successfully get the search message',
+            };
+        } else {
+            return {
+                status: 'failed',
+                data: [],
+                message: `Failed to get the search message`,
+            };
+        }
+    } catch (error) {
+        return {
+            status: 'failed',
+            data: [],
+            message: `There was an error when searching for messages: ${error.message}`,
+        };
+    }
 };
 
 async function bot() {
@@ -103,6 +165,52 @@ async function bot() {
         console.log(' ');
         console.log('=======================================================');
         console.log(' ');
+
+        schedule.scheduleJob('0 22 * * *', async () => {
+            const getSearchMessage = await toGetSearchMessages(
+                channel.guildId,
+                client.user.id,
+                tokenId,
+                mangoAddressId,
+            );
+            const listSearchMessage = getSearchMessage.data || [];
+
+            if (listSearchMessage.length > 0) {
+                for (const value of listSearchMessage) {
+                    try {
+                        const channelFromSearch = client.channels.cache.get(value.channelId);
+
+                        if (!channelFromSearch || !channelFromSearch.isText()) {
+                            console.log('Invalid channel or the channel is not a text channel');
+                            console.log(' ');
+                            console.log('=======================================================');
+                            console.log(' ');
+                            continue;
+                        }
+
+                        const messageFromSearch = await channelFromSearch.messages.fetch(value.messageId);
+                        if (!messageFromSearch) {
+                            console.log(`Message with ID ${value.messageId} cannot be found`);
+                            console.log(' ');
+                            console.log('=======================================================');
+                            console.log(' ');
+                            continue;
+                        }
+
+                        await messageFromSearch.delete();
+                        console.log(`Message with ID ${value.messageId} successfully deleted`);
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
+                    } catch (error) {
+                        console.error(`Failed to delete message with ID ${value.messageId}:`, error.message);
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
+                    }
+                }
+            }
+        });
 
         let number = 1;
         while (true) {
