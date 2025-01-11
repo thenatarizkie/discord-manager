@@ -104,7 +104,7 @@ async function bot() {
 
                 number++;
             } catch (error) {
-                console.error('There was an error when typing:', error);
+                console.log('There was an error when typing:', error);
                 process.exit(1);
             }
         }
