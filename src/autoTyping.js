@@ -57,6 +57,9 @@ async function bot() {
 
         if (!channel || !channel.isText()) {
             console.log('Invalid channel or the channel is not a text channel');
+            console.log(' ');
+            console.log('=======================================================');
+            console.log(' ');
             process.exit(1);
         }
 
@@ -69,6 +72,7 @@ async function bot() {
         let pausedFor = 9000;
         while (true) {
             try {
+                console.log(`Current Time: ${new Date().toString()}`);
                 console.log(`You are typing and it is a process of ${number}`);
 
                 const timePaused = formatTime(pausedFor);
