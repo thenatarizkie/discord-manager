@@ -13,6 +13,20 @@ Boost productivity and simplify tasks with these 6 powerful automation tools for
 - **Typing**: Simulate typing activity for a more natural and human-like presence. This feature adds an extra touch of realism to your bot's behavior.
 - **Faucet Mango Network**: Perfect for those working on airdrops, this feature automates the faucet claim process on Mango, helping you stay ahead of the game without having to manually claim rewards.
 
+## Prerequisites
+
+## Installation
+
+## Usage
+
+## Configuration
+
+## Testing
+
 ## How to Contribute
 
 Please check our [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
+
+## License
+
+## Suppport & Donation
