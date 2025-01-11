@@ -70,7 +70,8 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
     - Look at your browser's address bar
     - The URL should look something like this
 
-    ```text
+    ```javascript
+    // prettier-ignore
     https://discord.com/channels/<server_id>/<channel_id>
     ```
 
