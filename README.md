@@ -46,6 +46,11 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
     }]), m).find((m) => m?.exports?.default?.getToken !== void 0).exports.default.getToken();
     ```
 
+- **Get Your Token**: After running the code, your token will appear in the console. Copy it and keep it safe.
+  ⚠️ Important:
+    - Never share your token with anyone.
+    - Treat it like a password to protect your account from unauthorized access.
+
 ### 3. Discord Channel ID
 
 ### 4. Gemini API Key
