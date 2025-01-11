@@ -50,10 +50,31 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 
 - **Get Your Token**: After running the code, your token will appear in the console. Copy it and keep it safe. Important:
 
-    - Never share your token with anyone.
-    - Treat it like a password to protect your account from unauthorized access.
+    - Never share your token with anyone
+    - Treat it like a password to protect your account from unauthorized access
 
 ### 3. Discord Channel ID
+
+- **Open Discord Web**: Use the web version of Discord to simplify the process
+
+    - Go to [Discord Web](https://discord.com/)
+    - Log in to your account if you haven’t already
+
+- **Navigate to the Desired Server and Channel**: Find the channel whose ID you want to retrieve
+
+    - Open the server containing the channel
+    - Click on the channel name in the server’s sidebar to open it
+
+- **Copy the Channel ID from the URL**: Extract the Channel ID directly from the URL
+
+    - Look at your browser's address bar
+    - The URL should look something like this
+
+    ```text
+    https://discord.com/channels/<server_id>/<channel_id>
+    ```
+
+    - The <channel_id> is the last part of the URL
 
 ### 4. Gemini API Key
 
