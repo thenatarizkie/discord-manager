@@ -158,6 +158,9 @@ async function bot() {
 
         if (!channel || !channel.isText()) {
             console.log('Invalid channel or the channel is not a text channel');
+            console.log(' ');
+            console.log('=======================================================');
+            console.log(' ');
             process.exit(1);
         }
 
@@ -188,6 +191,7 @@ async function bot() {
                 }
 
                 if (listSearchMessage.length > 0) {
+                    let numberSchedule = 1;
                     for (const value of listSearchMessage) {
                         try {
                             const channelFromSearch = client.channels.cache.get(value.channelId);
@@ -210,15 +214,21 @@ async function bot() {
                             }
 
                             await messageFromSearch.delete();
+                            console.log(`Current Time: ${new Date().toString()}`);
+                            console.log(`Number of Process: ${numberSchedule}`);
                             console.log(`Message with ID ${value.messageId} successfully deleted`);
                             console.log(' ');
                             console.log('=======================================================');
                             console.log(' ');
+                            numberSchedule++;
                         } catch (error) {
-                            console.error(`Failed to delete message with ID ${value.messageId}:`, error.message);
+                            console.log(`Current Time: ${new Date().toString()}`);
+                            console.log(`Number of Process: ${numberSchedule}`);
+                            console.log(`Failed to delete message with ID ${value.messageId}:`, error.message);
                             console.log(' ');
                             console.log('=======================================================');
                             console.log(' ');
+                            numberSchedule++;
                         }
                     }
                 }
@@ -230,6 +240,7 @@ async function bot() {
             try {
                 const message = `<@1322128247550640130> ${mangoAddressId}`;
                 await channel.send(message);
+                console.log(`Current Time: ${new Date().toString()}`);
                 console.log(`Number of Process: ${number}`);
                 console.log(`Message Sent: ${message}`);
 
@@ -260,7 +271,7 @@ async function bot() {
 
                 number++;
             } catch (error) {
-                console.error('There is an error when requesting a faucet:', error);
+                console.log('There is an error when requesting a faucet:', error);
                 process.exit(1);
             }
         }
