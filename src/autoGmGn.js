@@ -116,6 +116,9 @@ async function bot() {
 
             if (!channel || !channel.isText()) {
                 console.log('Invalid channel or the channel is not a text channel');
+                console.log(' ');
+                console.log('=======================================================');
+                console.log(' ');
                 process.exit(1);
             }
 
@@ -127,18 +130,16 @@ async function bot() {
             schedule.scheduleJob('0 8 * * *', async () => {
                 try {
                     await channel.send(gmText);
-                    console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
                     console.log(`Current Time: ${new Date().toString()}`);
-                    console.log(`Send a gm message:: "${gmText}"`);
+                    console.log(`Type: ${chooseListCustomName}`);
+                    console.log(`Send a gm message: "${gmText}"`);
                     console.log('Messages scheduled successfully!');
                     console.log(' ');
                     console.log('=======================================================');
                     console.log(' ');
                 } catch (error) {
-                    console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
                     console.log(`Current Time: ${new Date().toString()}`);
+                    console.log(`Type: ${chooseListCustomName}`);
                     console.error('There was an error sending a gm message:', error);
                     console.log(' ');
                     console.log('=======================================================');
@@ -149,18 +150,16 @@ async function bot() {
             schedule.scheduleJob('0 22 * * *', async () => {
                 try {
                     await channel.send(gnText);
-                    console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
                     console.log(`Current Time: ${new Date().toString()}`);
-                    console.log(`Send a gn message:: "${gnText}"`);
+                    console.log(`Type: ${chooseListCustomName}`);
+                    console.log(`Send a gn message: "${gnText}"`);
                     console.log('Messages scheduled successfully!');
                     console.log(' ');
                     console.log('=======================================================');
                     console.log(' ');
                 } catch (error) {
-                    console.log(`Type Custom: ${chooseListCustomName}`);
-                    console.log(`Current Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}`);
                     console.log(`Current Time: ${new Date().toString()}`);
+                    console.log(`Type: ${chooseListCustomName}`);
                     console.error('There was an error sending a gn message:', error);
                     console.log(' ');
                     console.log('=======================================================');
@@ -174,7 +173,7 @@ async function bot() {
         console.log(' ');
         console.log('=======================================================');
         console.log(' ');
-        console.log('Random choice not found');
+        console.log('Custom choice not found');
         console.log(' ');
         console.log('=======================================================');
         console.log(' ');
