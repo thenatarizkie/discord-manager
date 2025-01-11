@@ -171,6 +171,9 @@ async function bot() {
 
                     if (!channel || !channel.isText()) {
                         console.log('Invalid channel or the channel is not a text channel');
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
                         process.exit(1);
                     }
 
@@ -217,9 +220,11 @@ async function bot() {
 
                     try {
                         const guild = message.guild;
-                        const emojiList = guild.emojis.cache.map((emoji) => emoji.toString());
+                        const emojiList = guild.emojis.cache;
+                        const freeEmojis = emojiList.filter((emoji) => emoji.requiresColons && !emoji.animated);
+                        const freeEmojiList = freeEmojis.map((emoji) => emoji.toString());
                         const defaultEmoji = ['✅', '😅', '🔥', '❤️', '💯', '💛', '👍', '🤝', '😊', '🤩', '❤️‍🔥'];
-                        const arrEmoji = emojiList.length > 0 ? [...emojiList, ...defaultEmoji] : defaultEmoji;
+                        const arrEmoji = freeEmojiList.length > 0 ? [...freeEmojiList, ...defaultEmoji] : defaultEmoji;
 
                         const randomEmojiValue = arrEmoji[Math.floor(Math.random() * arrEmoji.length)];
 
@@ -227,9 +232,9 @@ async function bot() {
                             randomDelay = Math.floor(Math.random() * 7000) + 1000;
                         }
 
+                        console.log(`Current Time: ${new Date().toString()}`);
                         console.log(`Number of Process: ${number}`);
-                        console.log(`Randomised Selection: ${chooseListRandomName}`);
-                        console.log(`Delay Selection: ${chooseListDelayName}`);
+                        console.log(`Randomised Selection: ${chooseListRandomName} (${chooseListDelayName})`);
                         console.log(`Message: ${message.content} (${message.author.globalName})`);
 
                         await message
@@ -301,6 +306,9 @@ async function bot() {
 
                 if (!channel || !channel.isText()) {
                     console.log('Invalid channel or the channel is not a text channel');
+                    console.log(' ');
+                    console.log('=======================================================');
+                    console.log(' ');
                     process.exit(1);
                 }
 
@@ -355,12 +363,15 @@ async function bot() {
 
                 try {
                     const guild = message.guild;
-                    const emojiList = guild.emojis.cache.map((emoji) => emoji.toString());
+                    const emojiList = guild.emojis.cache;
+                    const freeEmojis = emojiList.filter((emoji) => emoji.requiresColons && !emoji.animated);
+                    const freeEmojiList = freeEmojis.map((emoji) => emoji.toString());
                     const defaultEmoji = ['✅', '😅', '🔥', '❤️', '💯', '💛', '👍', '🤝', '😊', '🤩', '❤️‍🔥'];
-                    const arrEmoji = emojiList.length > 0 ? [...emojiList, ...defaultEmoji] : defaultEmoji;
+                    const arrEmoji = freeEmojiList.length > 0 ? [...freeEmojiList, ...defaultEmoji] : defaultEmoji;
 
                     const randomEmojiValue = arrEmoji[Math.floor(Math.random() * arrEmoji.length)];
 
+                    console.log(`Current Time: ${new Date().toString()}`);
                     console.log(`Number of Process: ${number}`);
                     console.log(`Randomised Selection: ${chooseListRandomName}`);
                     console.log(`Message: ${message.content} (${message.author.globalName})`);
