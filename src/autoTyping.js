@@ -73,7 +73,7 @@ async function bot() {
         while (true) {
             try {
                 console.log(`Current Time: ${new Date().toString()}`);
-                console.log(`You are typing and it is a process of ${number}`);
+                console.log(`Number of Process: ${number}`);
 
                 const timePaused = formatTime(pausedFor);
 
