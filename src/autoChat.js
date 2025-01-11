@@ -15,6 +15,7 @@ const lngDetector = new LanguageDetect();
 
 let lastMessage = null;
 let isProcessing = false;
+let isSpinner = false;
 let messageQueue = [];
 
 const onCancel = () => {
@@ -94,9 +95,8 @@ const processQueue = async (
         }
 
         console.log(`Current Time: ${new Date().toString()}`);
-        console.log(`Mode: ${mode}`);
-        console.log(`Model AI: ${modelAiName}`);
-        console.log(`Language: ${language}`);
+        console.log(`Mode: ${mode} (${modelAiName})`);
+        console.log(`Translate to ${language}`);
         console.log(`Type: ${typeName}`);
 
         if (isQueue === true) {
@@ -133,6 +133,7 @@ const processQueue = async (
     console.log(' ');
 
     let timeLeft = timeDelay / 1000;
+    isSpinner = true;
     const spinner = ora('Starting countdown...').start();
     const countdownInterval = setInterval(() => {
         const minutes = Math.floor(timeLeft / 60);
@@ -150,6 +151,7 @@ const processQueue = async (
     await delay(timeDelay);
     spinner.stop();
     isProcessing = false;
+    isSpinner = false;
 
     if (lastMessage === message) {
         lastMessage = null;
@@ -255,6 +257,9 @@ const processMessageQuote = async (
 
         if (!channel || !channel.isText()) {
             console.log('Invalid channel or the channel is not a text channel');
+            console.log(' ');
+            console.log('=======================================================');
+            console.log(' ');
             process.exit(1);
         }
 
@@ -273,24 +278,17 @@ const processMessageQuote = async (
         }
 
         if (delayDelete) {
-            setTimeout(async () => {
-                try {
-                    await sentMessage.delete();
-                    console.log('Successfully deleted the message');
-                } catch (error) {
-                    console.error('Failed to delete message:', error.message);
-                }
-                console.log(' ');
-                console.log('=======================================================');
-                console.log(' ');
-            }, delayDelete);
+            await delay(delayDelete);
+
+            try {
+                await sentMessage.delete();
+                console.log('Successfully deleted the message');
+            } catch (error) {
+                console.log('Failed to delete message:', error.message);
+            }
         }
     } catch (error) {
-        console.error('Failed to process the message:', error.message);
-
-        console.log(' ');
-        console.log('=======================================================');
-        console.log(' ');
+        console.log('Failed to process the message:', error.message);
     }
 };
 
@@ -490,6 +488,9 @@ async function bot() {
 
                             if (!channel || !channel.isText()) {
                                 console.log('Invalid channel or the channel is not a text channel');
+                                console.log(' ');
+                                console.log('=======================================================');
+                                console.log(' ');
                                 process.exit(1);
                             }
 
@@ -510,6 +511,7 @@ async function bot() {
                             const containsLink = /(https?:\/\/[^\s]+)/g.test(message.content);
 
                             if (message.attachments.size > 0 || message.content.trim() === '' || containsLink) {
+                                if (isSpinner) return;
                                 console.log(
                                     `Message from ${message.author.globalName} ignored because it is a link or non-text`,
                                 );
@@ -560,7 +562,7 @@ async function bot() {
                         console.log(` `);
                         console.log(`=======================================================`);
                         console.log(` `);
-                        console.log(`Message: The selected type is not found`);
+                        console.log(`Type choice not found`);
                         console.log(` `);
                         console.log(`=======================================================`);
                         console.log(` `);
@@ -569,7 +571,7 @@ async function bot() {
                     console.log(` `);
                     console.log(`=======================================================`);
                     console.log(` `);
-                    console.log(`Message: The selected language is not found`);
+                    console.log(`Language choice not found`);
                     console.log(` `);
                     console.log(`=======================================================`);
                     console.log(` `);
@@ -578,7 +580,7 @@ async function bot() {
                 console.log(` `);
                 console.log(`=======================================================`);
                 console.log(` `);
-                console.log(`Message: The selected model ai is not found`);
+                console.log(`Model AI choice not found`);
                 console.log(` `);
                 console.log(`=======================================================`);
                 console.log(` `);
@@ -658,6 +660,9 @@ async function bot() {
 
                     if (!channel || !channel.isText()) {
                         console.log('Invalid channel or the channel is not a text channel');
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
                         process.exit(1);
                     }
 
@@ -665,26 +670,51 @@ async function bot() {
                     console.log(' ');
                     console.log('=======================================================');
                     console.log(' ');
-                });
 
-                setInterval(async () => {
-                    await processMessageQuote(
-                        client,
-                        channelId,
-                        delayDelete,
-                        chooseListLanguageId,
-                        chooseListLanguageName,
-                        chooseListAutoChatName,
-                        getRandomQuote,
-                    );
-                }, delayMessage);
+                    while (true) {
+                        await processMessageQuote(
+                            client,
+                            channelId,
+                            delayDelete,
+                            chooseListLanguageId,
+                            chooseListLanguageName,
+                            chooseListAutoChatName,
+                            getRandomQuote,
+                        );
+
+                        const timePausedMessage = formatTime(delayMessage);
+
+                        console.log(`The action was delayed for ${timePausedMessage}`);
+                        console.log(' ');
+                        console.log('=======================================================');
+                        console.log(' ');
+
+                        let timeLeft = delayMessage / 1000;
+                        const spinner = ora('Starting countdown...').start();
+                        const countdownInterval = setInterval(() => {
+                            const minutes = Math.floor(timeLeft / 60);
+                            const seconds = Math.floor(timeLeft % 60);
+
+                            spinner.text = `Time Left: ${minutes} minutes ${seconds} seconds`;
+                            timeLeft--;
+
+                            if (timeLeft < 0) {
+                                spinner.stop();
+                                clearInterval(countdownInterval);
+                            }
+                        }, 1000);
+
+                        await delay(delayMessage);
+                        spinner.stop();
+                    }
+                });
 
                 client.login(tokenId);
             } else {
                 console.log(` `);
                 console.log(`=======================================================`);
                 console.log(` `);
-                console.log(`Message: The selected language is not found`);
+                console.log(`Language choice not found`);
                 console.log(` `);
                 console.log(`=======================================================`);
                 console.log(` `);
@@ -694,7 +724,7 @@ async function bot() {
         console.log(` `);
         console.log(`=======================================================`);
         console.log(` `);
-        console.log(`Message: The selected auto chat is not found`);
+        console.log(`Auto chat choice not found`);
         console.log(` `);
         console.log(`=======================================================`);
         console.log(` `);
