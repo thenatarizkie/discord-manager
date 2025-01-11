@@ -22,11 +22,10 @@ To run this bot, you need Node.js. You can download and install it from the offi
 - **Download**: [Node.js Official Website](https://nodejs.org/en)
 - **Version**: The bot requires Node.js version 16 or higher
 - **Verify**: Once you have Node.js installed, open your terminal or command prompt and check the version using the following commands:
-
-```bash
-node -v
-npm -v
-```
+    ```bash
+    node -v
+    npm -v
+    ```
 
 ### 2. Discord Token
 
