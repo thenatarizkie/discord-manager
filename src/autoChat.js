@@ -100,11 +100,9 @@ const processQueue = async (
         console.log(`Type: ${typeName}`);
 
         if (isQueue === true) {
-            console.log(
-                `Processing queued message from ${message.author.tag}: ${cleanedContent} (${detectedLanguage})`,
-            );
+            console.log(`Origial Queued Message (${message.author.tag}): ${cleanedContent} (${detectedLanguage})`);
         } else {
-            console.log(`Processing message from ${message.author.tag}: ${cleanedContent} (${detectedLanguage})`);
+            console.log(`Original Message (${message.author.tag}): ${cleanedContent} (${detectedLanguage})`);
         }
 
         const response = await generateResponse(listModel, modelAiId, cleanedContent, detectedLanguage);
@@ -119,7 +117,7 @@ const processQueue = async (
                 await message.channel.send(response);
             }
 
-            console.log(`Message reply from ${client.user.globalName}: ${response} (${detectedLanguage})`);
+            console.log(`Reply Message (${client.user.globalName}): ${response} (${detectedLanguage})`);
         }
     } catch (error) {
         console.log(`Error processing message: ${error.message}`);
@@ -127,7 +125,7 @@ const processQueue = async (
 
     const timePaused = formatTime(timeDelay);
 
-    console.log(`Message paused: ${timePaused}`);
+    console.log(`The action was delayed for ${timePaused}`);
     console.log(' ');
     console.log('=======================================================');
     console.log(' ');
