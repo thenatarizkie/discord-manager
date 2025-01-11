@@ -77,6 +77,13 @@ Please check our [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
 
 ## Suppport & Donation
 
+If you found this bot helpful, consider supporting the project:
+
+- **Solana**: `5p9sz5oHJnYHt65KgjKHLWGa8KzbgYeeKKk9wwi5LC6j`
+- **Polkadot**: `15kMFT3QUoPZkso8Zcqk5VaAociA8kYGe8YD8zZNUhnz1VUa`
+- **EVM**: `0xA276D7a3128Ec6408162031B5088780eD2957da9`
+- **BTC**: `bc1px28ff63grh0zun9t7rf2jkf939yg6fyrt6zelxplqe2ujzt5l05qma64l3`
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. Feel free to use and modify it for your own purposes.
