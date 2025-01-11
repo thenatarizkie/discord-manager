@@ -65,10 +65,18 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 
 ## Testing
 
+The project includes basic tests for each feature using Mocha and Chai. To run tests, use the following command:
+
+```bash
+npm run test
+```
+
 ## How to Contribute
 
 Please check our [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
 
+## Suppport & Donation
+
 ## License
 
-## Suppport & Donation
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. Feel free to use and modify it for your own purposes.
