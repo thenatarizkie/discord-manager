@@ -140,7 +140,7 @@ async function bot() {
                 } catch (error) {
                     console.log(`Current Time: ${new Date().toString()}`);
                     console.log(`Type: ${chooseListCustomName}`);
-                    console.error('There was an error sending a gm message:', error);
+                    console.log('There was an error sending a gm message:', error);
                     console.log(' ');
                     console.log('=======================================================');
                     console.log(' ');
@@ -160,7 +160,7 @@ async function bot() {
                 } catch (error) {
                     console.log(`Current Time: ${new Date().toString()}`);
                     console.log(`Type: ${chooseListCustomName}`);
-                    console.error('There was an error sending a gn message:', error);
+                    console.log('There was an error sending a gn message:', error);
                     console.log(' ');
                     console.log('=======================================================');
                     console.log(' ');
