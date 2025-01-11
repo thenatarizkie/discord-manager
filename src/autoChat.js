@@ -36,6 +36,13 @@ const formatTime = (ms) => {
     return `${minutes} minutes ${seconds} seconds`;
 };
 
+const capitalizeWords = (words = '') => {
+    return words
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
 const modelAiFilePath = './assets/listModelAI.json';
 const languageFilePath = './assets/listLanguage.json';
 const quotesEnFilePath = './assets/listQuotesEn.json';
@@ -61,6 +68,7 @@ const loadFileJson = (path = '', type = 'array') => {
 const processQueue = async (
     message = {},
     listModel = [],
+    listLanguage = [],
     mode = 'Talk With AI',
     modelAiId = 'casualWithoutEmoji',
     modelAiName = 'Casual without Emoji',
@@ -79,14 +87,12 @@ const processQueue = async (
         let detectedLanguage = 'English';
 
         if (language === 'Auto') {
-            // Cek disini
             for (let i = 0; i < detectedLanguages.length; i++) {
                 const language = detectedLanguages[i][0];
-                if (language === 'indonesian') {
-                    detectedLanguage = 'Indonesian';
-                    break;
-                } else if (language === 'english') {
-                    detectedLanguage = 'English';
+                const capitalLanguage = capitalizeWords(language);
+                const getLanguageFromJson = listLanguage.find((m) => m.name === capitalLanguage);
+                if (typeof getLanguageFromJson !== 'undefined') {
+                    detectedLanguage = getLanguageFromJson.name;
                     break;
                 }
             }
@@ -203,6 +209,7 @@ const processQueueWithDelay = async () => {
             await processQueue(
                 nextMessage.message,
                 nextMessage.listModel,
+                nextMessage.listLanguage,
                 nextMessage.mode,
                 nextMessage.modelAiId,
                 nextMessage.modelAiName,
@@ -527,6 +534,7 @@ async function bot() {
                                 messageQueue.push({
                                     message,
                                     listModel: arrListModelAi,
+                                    listLanguage: arrListLanguage,
                                     mode: chooseListAutoChatName,
                                     modelAiId: chooseListModelAiId,
                                     modelAiName: chooseListModelAiName,
@@ -541,6 +549,7 @@ async function bot() {
                                         await processQueue(
                                             lastMessage,
                                             arrListModelAi,
+                                            arrListLanguage,
                                             chooseListAutoChatName,
                                             chooseListModelAiId,
                                             chooseListModelAiName,
