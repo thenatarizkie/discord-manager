@@ -3,6 +3,7 @@ import { Client } from 'discord.js-selfbot-v13';
 import process from 'process';
 import prompts from 'prompts';
 import ora from 'ora';
+import delay from 'delay';
 
 const client = new Client({ checkUpdate: false });
 
@@ -270,7 +271,7 @@ async function bot() {
                             }
                         }, 1000);
 
-                        await new Promise((resolve) => setTimeout(resolve, randomDelay));
+                        await delay(randomDelay);
                         spinner.stop();
                     } catch (error) {
                         console.log(`Error processing message: ${error.message}`);
