@@ -34,8 +34,10 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 
 - **Log in to Discord**: Make sure you're already logged in to your Discord account on your web browser
 - **Open Developer Tools**:
+
     - On your browser, press **Ctrl + Shift + I** (Windows/Linux) or **Cmd + Option + I** (Mac) to open Developer Tools
     - Navigate to the Console tab
+
 - **Run the Code Below**: Copy and paste the following JavaScript code into the console, then press Enter:
 
     ```javascript
@@ -46,8 +48,8 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
     }]), m).find((m) => m?.exports?.default?.getToken !== void 0).exports.default.getToken();
     ```
 
-- **Get Your Token**: After running the code, your token will appear in the console. Copy it and keep it safe.
-  ⚠️ Important:
+- **Get Your Token**: After running the code, your token will appear in the console. Copy it and keep it safe. Important:
+
     - Never share your token with anyone.
     - Treat it like a password to protect your account from unauthorized access.
 
