@@ -95,6 +95,9 @@ async function bot() {
 
         if (!channel || !channel.isText()) {
             console.log('Invalid channel or the channel is not a text channel');
+            console.log(' ');
+            console.log('=======================================================');
+            console.log(' ');
             process.exit(1);
         }
 
@@ -137,7 +140,7 @@ async function bot() {
             console.log(`Message: ${message.content}`);
             console.log(`Word sent by ${message.author.globalName}: ${countWord} words`);
 
-            if (warnings !== 3 && warnings !== 7) {
+            if (warnings !== 3 && warnings !== 7 && warnings !== 10 && warnings !== 15) {
                 await message.channel.send(
                     `${message.author} using the word ||**${detectedBadWords.join(', ')}**|| is inappropriate and prohibited here, ${warnings}x warning.`,
                 );
