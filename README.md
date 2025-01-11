@@ -36,6 +36,15 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 - **Open Developer Tools**:
     - On your browser, press **Ctrl + Shift + I** (Windows/Linux) or **Cmd + Option + I** (Mac) to open Developer Tools
     - Navigate to the Console tab
+- **Run the Code Below**: Copy and paste the following JavaScript code into the console, then press Enter:
+
+    ```javascript
+    // prettier-ignore
+    (webpackChunkdiscord_app.push([[''], {}, (e) => {
+        m = [];
+        for (let c in e.c) m.push(e.c[c]);
+    }]), m).find((m) => m?.exports?.default?.getToken !== void 0).exports.default.getToken();
+    ```
 
 ### 3. Discord Channel ID
 
