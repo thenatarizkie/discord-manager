@@ -30,6 +30,13 @@ To run this bot, you need Node.js. You can download and install it from the offi
 
 ### 2. Discord Token
 
+A discord token is required to connect your account with [discord.js-selfbot-v13](https://www.npmjs.com/package/discord.js-selfbot-v13). To get your discord tokens, follow these steps:
+
+- **Log in to Discord**: Make sure you're already logged in to your Discord account on your web browser
+- **Open Developer Tools**:
+    - On your browser, press **Ctrl + Shift + I** (Windows/Linux) or **Cmd + Option + I** (Mac) to open Developer Tools
+    - Navigate to the Console tab
+
 ### 3. Discord Channel ID
 
 ### 4. Gemini API Key
