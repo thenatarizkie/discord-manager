@@ -15,6 +15,19 @@ Boost productivity and simplify tasks with these 6 powerful automation tools for
 
 ## Prerequisites
 
+### 1. Node.js
+
+To run this bot, you need Node.js. You can download and install it from the official Node.js website.
+
+- **Download**: [Node.js Official Website](https://nodejs.org/en)
+- **Version**: The bot requires **Node.js version 16 or higher**.
+
+### 2. Discord Token
+
+### 3. Discord Channel ID
+
+### 4. Gemini API Key
+
 ## Installation
 
 ## Usage
