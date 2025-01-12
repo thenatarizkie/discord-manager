@@ -129,6 +129,8 @@ Gemini API keys are used to generate messages when interacting with other users.
 
 ## Usage
 
+Each script corresponds to a different automation feature. You can run any script individually using `npm run`:
+
 ## Configuration
 
 ## Testing
