@@ -143,22 +143,22 @@ The bot reads messages sent by other users on a particular channel and utilises 
 
 - **Prompts**:
 
-    - **Discord Token:** Authentication token to log in the bot.
-    - **Discord Channel:** ID of the channel where messages will be sent.
-    - **List Auto Chat:** Options for the type of auto chat:
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel where messages will be sent
+    - **List Auto Chat**: Options for the type of auto chat:
 
-        - **Talk With AI:** The bot uses AI to respond to messages.
+        - **Talk With AI**: The bot uses AI to respond to messages
 
-            - **List Model AI:** AI models available for use (refer to [listModelAI.json](assets/listModelAI.json)).
-            - **List Language:** Language options for responses (refer to [listLanguage.json](assets/listLanguage.json)).
-            - **List Type:** Method of sending responses, either to the channel or as a reply.
-            - **Delay Message:** Time delay before sending a message.
+            - **List Model AI**: AI models available for use (refer to [listModelAI.json](assets/listModelAI.json))
+            - **List Language**: Language options for responses (refer to [listLanguage.json](assets/listLanguage.json))
+            - **List Type**: Method of sending responses, either to the channel or as a reply
+            - **Delay Message**: Time delay before sending a message
 
-        - **Quote:** The bot sends motivational quotes.
+        - **Quote**: The bot sends motivational quotes
 
-            - **List Language:** Language options for quotes (refer to [listLanguage.json](assets/listLanguage.json)).
-            - **Delay Message:** Time delay before sending a quote.
-            - **Delay Delete:** Time delay before deleting the quote.
+            - **List Language**: Language options for quotes (refer to [listLanguage.json](assets/listLanguage.json))
+            - **Delay Message**: Time delay before sending a quote
+            - **Delay Delete**: Time delay before deleting the quote
 
 ### 2. Auto Forbidden Words
 
@@ -172,6 +172,9 @@ The bot scans all messages sent by other users on a particular channel and check
 
 - **Prompts**:
 
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel to be monitored
+
 ### 3. Auto Gm Gn
 
 The bot will check the time and send a "Good Morning" message in the morning (08:00 UTC) or "Good Night" message in the evening (22:00 UTC) according to the preset schedule.
@@ -183,6 +186,16 @@ The bot will check the time and send a "Good Morning" message in the morning (08
     ```
 
 - **Prompts**:
+
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel where the messages will be sent
+    - **List Custom Message**: Options for GM/GN messages:
+
+        - **Default Messages**: Use pre-defined messages
+        - **Custom Messages**: Use user-defined custom messages
+
+            - **Custom GM Text**: Custom "Good Morning" text
+            - **Custom GN Text**: Custom "Good Night" text
 
 ### 4. Auto Reaction
 
@@ -196,6 +209,23 @@ The bot will scan messages sent by other users on a particular channel and add r
 
 - **Prompts**:
 
+- **Discord Token**: Authentication token to log in the bot
+- **Discord Channel**: ID of the channel to be monitored
+- **List Random**: Options for reaction behavior:
+
+    - **All Messages Without Delay**: React to all messages immediately
+    - **All Messages With Delay**: React to all messages with a delay
+
+        - **List Delay**:
+
+            - **Manual Delay**: Set reaction delay manually
+
+                - **Delay Reaction**: Time delay for the reaction
+
+            - **Automatic Delay**: Delay determined automatically by the bot
+
+    - **Random Messages**: React only to certain messages randomly
+
 ### 5. Auto Typing
 
 The bot will trigger the "typing" animation (Typing Indicator) at certain preset time intervals, making it appear as if the bot is active.
@@ -208,6 +238,9 @@ The bot will trigger the "typing" animation (Typing Indicator) at certain preset
 
 - **Prompts**:
 
+- **Discord Token**: Authentication token to log in the bot
+- **Discord Channel**: ID of the channel where typing simulation occurs
+
 ### 6. Auto Faucet Mango
 
 The bot will send Mango faucet claim requests according to the preset time interval in the specified channel.
@@ -219,6 +252,11 @@ The bot will send Mango faucet claim requests according to the preset time inter
     ```
 
 - **Prompts**:
+
+- **Discord Token**: Authentication token to log in the bot
+- **Discord Channel**: ID of the channel where claims are made
+- **Mango Address**: Mango address to receive the claimed rewards
+- **Delay Message**: Time delay before each claim is made
 
 ## Configuration
 
