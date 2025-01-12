@@ -61,6 +61,9 @@ async function bot() {
         console.log('=======================================================');
         console.log(' ');
 
+        console.log(`Copyright (c) 2025 - Present Natarizkie`);
+        console.log(`Web: https://natarizkie.com/ - E-mail: natarizkie@gmail.com`);
+        console.log(' ');
         console.log(`You have successfully logged in using your ${client.user.globalName} account!`);
 
         const channel = client.channels.cache.get(channelId);
