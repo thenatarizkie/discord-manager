@@ -143,6 +143,23 @@ The bot reads messages sent by other users on a particular channel and utilises 
 
 - **Prompts**:
 
+    - **Discord Token:** Authentication token to log in the bot.
+    - **Discord Channel:** ID of the channel where messages will be sent.
+    - **List Auto Chat:** Options for the type of auto chat:
+
+        - **Talk With AI:** The bot uses AI to respond to messages.
+
+            - **List Model AI:** AI models available for use (refer to [listModelAI.json](assets/listModelAI.json)).
+            - **List Language:** Language options for responses (refer to [listLanguage.json](assets/listLanguage.json)).
+            - **List Type:** Method of sending responses, either to the channel or as a reply.
+            - **Delay Message:** Time delay before sending a message.
+
+        - **Quote:** The bot sends motivational quotes.
+
+            - **List Language:** Language options for quotes (refer to [listLanguage.json](assets/listLanguage.json)).
+            - **Delay Message:** Time delay before sending a quote.
+            - **Delay Delete:** Time delay before deleting the quote.
+
 ### 2. Auto Forbidden Words
 
 The bot scans all messages sent by other users on a particular channel and checks for the presence of words on the banned list. If found, the bot will delete the message and alert the user (timeout/kick).
