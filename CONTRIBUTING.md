@@ -23,3 +23,5 @@ All changes need to be made in the source files located in the `src` folder and 
 - Your code should follow the project’s coding style
 
 Always run a build and test the results before committing.
+
+Always check
