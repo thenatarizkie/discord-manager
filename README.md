@@ -286,6 +286,24 @@ npm run test
 
 Please check our [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
 
+## To-Do List
+
+- [x] Build **Automated Chat** (`discordAutoChat`) for engaging responses in Discord channels.
+- [x] Implement **Forbidden Words Filter** (`discordAutoForbiddenWords`) to ensure message compliance.
+- [x] Develop **Good Morning/Good Night Automation** (`discordAutoGmGn`) for daily community interaction.
+- [ ] Optimize the **Good Morning/Good Night Automation** for timezone support.
+- [x] Add **Automated Reactions** (`discordAutoReaction`) to dynamically respond to messages with reactions.
+- [x] Create **Typing Indicator Simulation** (`discordAutoTyping`) to mimic human activity in Discord channels.
+- [x] Implement **Mango Faucet Automation** (`discordAutoFaucetMango`) for handling web3 airdrop tasks.
+- [ ] Create a script to auto-generate Mocha test files for new features.
+- [ ] Setup **automated testing** with Mocha and Chai for all features.
+- [x] Integrate **environment variable support** using `dotenv` for secure configuration.
+- [x] Establish **robust dependency setup** with libraries like `discord.js-selfbot-v13`, `prompts`, and `ora`.
+- [ ] Add better exception handling and error logging across all scripts.
+- [ ] Build **multi-language support** to engage users globally.
+- [ ] Add **rate-limiting controls** to prevent overuse of bot features.
+- [ ] Include **community suggestions** in future feature updates.
+
 ## Suppport & Donation
 
 If you found this bot helpful, consider supporting the project:
