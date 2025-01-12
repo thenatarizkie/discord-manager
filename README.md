@@ -260,6 +260,20 @@ The bot will send Mango faucet claim requests according to the preset time inter
 
 ## Configuration
 
+Make sure all configurations are set up correctly before running the scripts.
+
+- **Required**:
+
+    - **Discord Token**: Your Discord bot token
+    - **Discord Channel ID**: The channel ID where the bot will operate
+    - **Gemini API Key**: Your Gemini API key
+
+- **JSON Configurations**:
+
+    - **listBadWord.json**: Configure forbidden words for Auto Forbidden Words
+    - **listLanguage.json**: Set supported languages for Auto Chat and Quote features
+    - **listModelAI.json**: Define AI models for Auto Chat
+
 ## Testing
 
 The project includes basic tests for each feature using Mocha and Chai. To run tests, use the following command:
