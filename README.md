@@ -131,17 +131,17 @@ Gemini API keys are used to generate messages when interacting with other users.
 
 Each script corresponds to a different automation feature. You can run any script individually using `npm run`:
 
-### 1. discordAutoChat
+### 1. Auto Chat
 
-### 2. discordAutoForbiddenWords
+### 2. Auto Forbidden Words
 
-### 3. discordAutoGmGn
+### 3. Auto Gm Gn
 
-### 4. discordAutoReaction
+### 4. Auto Reaction
 
-### 5. discordAutoTyping
+### 5. Auto Typing
 
-### 6. discordAutoFaucetMango
+### 6. Auto Faucet Mango
 
 ## Configuration
 
