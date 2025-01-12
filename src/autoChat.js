@@ -1,3 +1,13 @@
+/**
+ * @license Discord Manager
+ * autoChat.js
+ *
+ * Copyright (c) 2025 - Present Natarizkie
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import 'dotenv/config';
 import { Client } from 'discord.js-selfbot-v13';
 import { GoogleGenerativeAI } from '@google/generative-ai';
