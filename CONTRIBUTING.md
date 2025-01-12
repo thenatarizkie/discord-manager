@@ -15,7 +15,7 @@ Since this is an open source project that I developed myself, there are still ma
 
 ## Notes To Contribute
 
-Make sure to not commit generated files from your dist folder. All changes need to be made in the source files located in the `src` folder.
+All changes need to be made in the source files located in the `src` folder and don't commit generated files from your dist folder.
 
 - Make sure the codebase builds and passes all tests before submitting your pull request
 - Write clear, concise commit messages
