@@ -162,6 +162,7 @@ async function bot() {
         console.log('=======================================================');
         console.log(' ');
 
+        console.log('Welcome to Discord Manager!');
         console.log(`Copyright (c) 2025 - Present Natarizkie`);
         console.log(`Web: https://natarizkie.com/ - E-mail: natarizkie@gmail.com`);
         console.log(' ');
