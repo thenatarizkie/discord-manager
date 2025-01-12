@@ -209,22 +209,22 @@ The bot will scan messages sent by other users on a particular channel and add r
 
 - **Prompts**:
 
-- **Discord Token**: Authentication token to log in the bot
-- **Discord Channel**: ID of the channel to be monitored
-- **List Random**: Options for reaction behavior:
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel to be monitored
+    - **List Random**: Options for reaction behavior:
 
-    - **All Messages Without Delay**: React to all messages immediately
-    - **All Messages With Delay**: React to all messages with a delay
+        - **All Messages Without Delay**: React to all messages immediately
+        - **All Messages With Delay**: React to all messages with a delay
 
-        - **List Delay**:
+            - **List Delay**:
 
-            - **Manual Delay**: Set reaction delay manually
+                - **Manual Delay**: Set reaction delay manually
 
-                - **Delay Reaction**: Time delay for the reaction
+                    - **Delay Reaction**: Time delay for the reaction
 
-            - **Automatic Delay**: Delay determined automatically by the bot
+                - **Automatic Delay**: Delay determined automatically by the bot
 
-    - **Random Messages**: React only to certain messages randomly
+        - **Random Messages**: React only to certain messages randomly
 
 ### 5. Auto Typing
 
@@ -238,8 +238,8 @@ The bot will trigger the "typing" animation (Typing Indicator) at certain preset
 
 - **Prompts**:
 
-- **Discord Token**: Authentication token to log in the bot
-- **Discord Channel**: ID of the channel where typing simulation occurs
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel where typing simulation occurs
 
 ### 6. Auto Faucet Mango
 
@@ -253,10 +253,10 @@ The bot will send Mango faucet claim requests according to the preset time inter
 
 - **Prompts**:
 
-- **Discord Token**: Authentication token to log in the bot
-- **Discord Channel**: ID of the channel where claims are made
-- **Mango Address**: Mango address to receive the claimed rewards
-- **Delay Message**: Time delay before each claim is made
+    - **Discord Token**: Authentication token to log in the bot
+    - **Discord Channel**: ID of the channel where claims are made
+    - **Mango Address**: Mango address to receive the claimed rewards
+    - **Delay Message**: Time delay before each claim is made
 
 ## Configuration
 
