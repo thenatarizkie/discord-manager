@@ -55,6 +55,8 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 
 ### 3. Discord Channel ID
 
+Channel ID are required for the bot to send messages to specific channels on the Discord server. To get your Discord channel ID, follow these steps:
+
 - **Open Discord Web**: Use the web version of Discord to simplify the process
 
     - Go to [Discord Web](https://discord.com/)
@@ -80,7 +82,50 @@ A discord token is required to connect your account with [discord.js-selfbot-v13
 
 ### 4. Gemini API Key
 
+Gemini API keys are used to generate messages when interacting with other users. To get your Gemini API key, follow these steps:
+
+- **Visit the Google AI Studio Website**: Open your browser and go to [Google AI Studio](https://aistudio.google.com/)
+- **Log In to Your Google Account**: Access your account to proceed
+
+    - Click Sign in to Google AI Studio
+    - Use your Google credentials to log in
+
+- **Navigate to the API Key Section**: Find the option to generate your API key
+
+    - After logging in, look for and click the Get API Key button
+    - Click the Create API Key button
+
+- **Copy and Save the API Key**: Once the key is generated, copy it to a safe location for later use in your bot configuration
+
 ## Installation
+
+- **Clone the Repository:**: Get a copy of the project code on your local machine
+
+    ```bash
+    git clone https://github.com/thenatarizkie/discord-manager.git
+    cd discord-manager
+    ```
+
+- **Install Dependencies:**: Install all required packages and dependencies
+
+    ```bash
+    npm install
+    ```
+
+- **Create a .env File:**: Set up your environment variables by creating a .env file
+
+    ```bash
+    cp .env.example .env
+    ```
+
+- **Add Your Gemini API Key:**: Paste your Gemini API key into the .env file
+
+    - Open the .env file in a text editor
+    - Replace the placeholder with your actual Gemini API key
+
+        ```env
+        GEMINI_API_KEY="your_actual_api_key"
+        ```
 
 ## Usage
 
