@@ -1,6 +1,6 @@
 /**
  * @license Discord Manager
- * autoGmGn.js
+ * autoReaction.js
  *
  * Copyright (c) 2025 - Present Natarizkie
  *
