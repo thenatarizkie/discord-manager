@@ -99,26 +99,26 @@ Gemini API keys are used to generate messages when interacting with other users.
 
 ## Installation
 
-- **Clone the Repository:**: Get a copy of the project code on your local machine
+- **Clone the Repository**: Get a copy of the project code on your local machine
 
     ```bash
     git clone https://github.com/thenatarizkie/discord-manager.git
     cd discord-manager
     ```
 
-- **Install Dependencies:**: Install all required packages and dependencies
+- **Install Dependencies**: Install all required packages and dependencies
 
     ```bash
     npm install
     ```
 
-- **Create a .env File:**: Set up your environment variables by creating a .env file
+- **Create a .env File**: Set up your environment variables by creating a .env file
 
     ```bash
     cp .env.example .env
     ```
 
-- **Add Your Gemini API Key:**: Paste your Gemini API key into the .env file
+- **Add Your Gemini API Key**: Paste your Gemini API key into the .env file
 
     - Open the .env file in a text editor
     - Replace the placeholder with your actual Gemini API key
