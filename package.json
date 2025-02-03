@@ -102,7 +102,7 @@
         "string-similarity": "^4.0.4",
         "translate-google": "^1.5.0",
         "utf-8-validate": "^6.0.4",
-        "vercel": "^39.3.0",
+        "vercel": "^40.1.0",
         "web3": "^4.9.0",
         "web3-validator": "^2.0.6",
         "zksync-ethers": "^6.7.1",
